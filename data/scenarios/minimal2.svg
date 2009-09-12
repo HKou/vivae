@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="568"
+   height="387"
+   id="svg2"
+   inkscape:label="Pozadí"
+   sodipodi:version="0.32"
+   inkscape:version="0.46"
+   version="1.0"
+   sodipodi:docbase="C:\data\bakalarka\streda"
+   sodipodi:docname="minimal2.svg"
+   inkscape:output_extension="org.inkscape.output.svg.inkscape">
+  <defs
+     id="defs2217">
+    <inkscape:perspective
+       sodipodi:type="inkscape:persp3d"
+       inkscape:vp_x="0 : 250 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_z="700 : 250 : 1"
+       inkscape:persp3d-origin="350 : 166.66667 : 1"
+       id="perspective11" />
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.49497475"
+     inkscape:cx="96.974699"
+     inkscape:cy="261.51942"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     width="700px"
+     height="500px"
+     inkscape:window-width="768"
+     inkscape:window-height="719"
+     inkscape:window-x="4"
+     inkscape:window-y="25"
+     showgrid="false" />
+  <metadata
+     id="metadata2220">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Vrstva 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     style="display:inline"
+     transform="translate(6.0609155,-119.17249)">
+    <rect
+       style="fill:#008000"
+       id="rect2223"
+       width="568.71588"
+       height="387.89856"
+       x="0.0609155"
+       y="0.17249"
+       inkscape:label="Grass" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer2"
+     inkscape:label="Layer2"
+     style="display:inline"
+     transform="translate(6.0609155,-119.17249)">
+    <rect
+       style="fill:#ff00ff"
+       id="rect4179"
+       width="23.233509"
+       height="18.182745"
+       x="465.68027"
+       y="348.47708"
+       inkscape:label="Robot" />
+    <rect
+       style="fill:#ff00ff"
+       id="rect4181"
+       width="22.223356"
+       height="23.233509"
+       x="407.09146"
+       y="457.57364"
+       inkscape:label="Robot" />
+  </g>
+</svg>

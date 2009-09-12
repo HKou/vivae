@@ -1,0 +1,783 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://web.resource.org/cc/"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="800"
+   height="700"
+   id="svg2"
+   inkscape:label="Pozadí"
+   sodipodi:version="0.32"
+   inkscape:version="0.45.1"
+   version="1.0"
+   sodipodi:docbase="C:\data\bakalarka\streda"
+   sodipodi:docname="scenar3_01.svg"
+   inkscape:output_extension="org.inkscape.output.svg.inkscape">
+  <defs
+     id="defs2217" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.7"
+     inkscape:cx="224.92715"
+     inkscape:cy="382.73772"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer4"
+     width="800px"
+     height="700px"
+     inkscape:window-width="1226"
+     inkscape:window-height="774"
+     inkscape:window-x="-4"
+     inkscape:window-y="-4" />
+  <metadata
+     id="metadata2220">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Vrstva 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     style="display:inline"
+     transform="translate(16.162441,12.147341)"
+     sodipodi:insensitive="true">
+    <rect
+       style="fill:#008000"
+       id="rect2223"
+       width="811.91248"
+       height="710.89209"
+       x="-20.34663"
+       y="-13.821016"
+       inkscape:label="Grass" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer2"
+     inkscape:label="Layer2"
+     style="display:inline"
+     transform="translate(16.162441,12.147341)"
+     sodipodi:insensitive="true">
+    <rect
+       style="fill:#800000"
+       id="rect4265"
+       width="557.60419"
+       height="44.446712"
+       x="-23.305298"
+       y="164.5822"
+       inkscape:label="Road" />
+    <rect
+       style="fill:#800000"
+       id="rect4267"
+       width="563.6651"
+       height="41.416256"
+       x="-24.560555"
+       y="433.13919"
+       inkscape:label="Road" />
+    <a
+       id="a4273"
+       inkscape:label="Road"
+       transform="matrix(1,0,0,1.4188595,0,-145.63536)">
+      <rect
+         inkscape:label="Road"
+         y="91.898369"
+         x="493.9646"
+         height="317.1879"
+         width="45.456863"
+         id="rect4269"
+         style="fill:#800000" />
+    </a>
+    <rect
+       style="fill:#800000"
+       id="rect4271"
+       width="276.95001"
+       height="41.416256"
+       x="515.66803"
+       y="314.40167"
+       inkscape:label="Road" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer3"
+     inkscape:label="Layer3"
+     style="display:inline"
+     transform="translate(16.162441,12.147341)"
+     sodipodi:insensitive="true">
+    <rect
+       style="fill:#ffff00"
+       id="rect4365"
+       width="7.0710678"
+       height="151.52289"
+       x="66.734642"
+       y="236.42409"
+       inkscape:label="FixedObstacle" />
+    <rect
+       style="fill:#ffff00"
+       id="rect4367"
+       width="6.0609155"
+       height="157.5838"
+       x="457.46274"
+       y="-13.575912"
+       inkscape:label="FixedObstacle" />
+    <rect
+       style="fill:#ffff00"
+       id="rect4369"
+       width="269.71072"
+       height="11.111678"
+       x="64.325661"
+       y="475.06519"
+       inkscape:label="FixedObstacle" />
+    <rect
+       style="fill:#ffff00"
+       id="rect4371"
+       width="63.63961"
+       height="12.121831"
+       x="601.29523"
+       y="125.99125"
+       inkscape:label="FixedObstacle" />
+    <rect
+       style="fill:#ffff00"
+       id="rect4373"
+       width="37.375645"
+       height="11.111678"
+       x="651.15674"
+       y="215.99126"
+       inkscape:label="FixedObstacle" />
+    <rect
+       style="fill:#ffff00"
+       id="rect4375"
+       width="46.467018"
+       height="10.101525"
+       x="702.38733"
+       y="127.41982"
+       inkscape:label="FixedObstacle" />
+    <rect
+       style="fill:#ffff00"
+       id="rect4377"
+       width="11.111678"
+       height="51.51778"
+       x="706.3736"
+       y="404.56268"
+       inkscape:label="FixedObstacle" />
+    <rect
+       style="fill:#ffff00"
+       id="rect4379"
+       width="11.111678"
+       height="49.497475"
+       x="56.591061"
+       y="29.32626"
+       inkscape:label="FixedObstacle" />
+    <rect
+       style="fill:#ffff00"
+       id="rect4381"
+       width="27.274118"
+       height="33.335033"
+       x="-8.7150078"
+       y="400.89334"
+       inkscape:label="FixedObstacle" />
+    <rect
+       style="fill:#ffff00"
+       id="rect4383"
+       width="29.294424"
+       height="27.274118"
+       x="46.078339"
+       y="398.2095"
+       inkscape:label="FixedObstacle" />
+    <rect
+       style="fill:#ffff00"
+       id="rect4385"
+       width="31.31473"
+       height="29.294424"
+       x="118.67295"
+       y="351.56915"
+       inkscape:label="FixedObstacle" />
+    <rect
+       style="fill:#ffff00"
+       id="rect4387"
+       width="29.294424"
+       height="27.274118"
+       x="122.87457"
+       y="403.58948"
+       inkscape:label="FixedObstacle" />
+    <rect
+       style="fill:#ffff00"
+       id="rect4389"
+       width="90.913727"
+       height="7.0710678"
+       x="25.427128"
+       y="651.36908"
+       inkscape:label="FixedObstacle" />
+    <rect
+       style="fill:#ffff00"
+       id="rect4391"
+       width="8.0812206"
+       height="74.751289"
+       x="79.366211"
+       y="495.57788"
+       inkscape:label="FixedObstacle" />
+    <rect
+       style="fill:#ffff00"
+       id="rect4393"
+       width="38.385796"
+       height="28.284271"
+       x="302.90939"
+       y="629.91077"
+       inkscape:label="FixedObstacle" />
+    <rect
+       style="fill:#ffff00"
+       id="rect4395"
+       width="44.446712"
+       height="34.345188"
+       x="431.73105"
+       y="573.67657"
+       inkscape:label="FixedObstacle" />
+    <rect
+       style="fill:#ffff00"
+       id="rect4397"
+       width="39.39595"
+       height="31.31473"
+       x="556.68536"
+       y="594.96155"
+       inkscape:label="FixedObstacle" />
+    <rect
+       style="fill:#ffff00"
+       id="rect4399"
+       width="37.375645"
+       height="30.304577"
+       x="140.55777"
+       y="617.74695"
+       inkscape:label="FixedObstacle" />
+    <rect
+       style="fill:#ffff00"
+       id="rect4401"
+       width="40.406101"
+       height="24.243662"
+       x="685.72748"
+       y="530.53223"
+       inkscape:label="FixedObstacle" />
+    <rect
+       style="fill:#ffff00"
+       id="rect4403"
+       width="39.39595"
+       height="27.274118"
+       x="359.49832"
+       y="479.17551"
+       inkscape:label="FixedObstacle" />
+    <rect
+       style="fill:#ffff00"
+       id="rect4405"
+       width="13.131983"
+       height="12.121831"
+       x="662.55853"
+       y="658.95502"
+       inkscape:label="FixedObstacle" />
+    <rect
+       style="fill:#ffff00"
+       id="rect4407"
+       width="18.182745"
+       height="13.131983"
+       x="757.01758"
+       y="598.96735"
+       inkscape:label="FixedObstacle" />
+    <rect
+       style="fill:#ffff00"
+       id="rect4409"
+       width="17.172594"
+       height="16.162441"
+       x="426.91092"
+       y="470.56921"
+       inkscape:label="FixedObstacle" />
+    <rect
+       style="fill:#ffff00"
+       id="rect4411"
+       width="16.162441"
+       height="16.162441"
+       x="688.82977"
+       y="19.984695"
+       inkscape:label="FixedObstacle" />
+    <rect
+       style="fill:#ffff00"
+       id="rect4413"
+       width="16.162441"
+       height="15.152288"
+       x="665.59113"
+       y="270.02673"
+       inkscape:label="FixedObstacle" />
+    <rect
+       style="fill:#ffff00"
+       id="rect4415"
+       width="21.213203"
+       height="18.182745"
+       x="408.31699"
+       y="113.53001"
+       inkscape:label="FixedObstacle" />
+    <rect
+       style="fill:#ffff00"
+       id="rect4417"
+       width="19.192898"
+       height="13.131983"
+       x="262.94424"
+       y="90.271851"
+       inkscape:label="FixedObstacle" />
+    <rect
+       style="fill:#ffff00"
+       id="rect4419"
+       width="15.152288"
+       height="11.111678"
+       x="265.6701"
+       y="56.543034"
+       inkscape:label="FixedObstacle" />
+    <rect
+       style="fill:#ffff00"
+       id="rect4421"
+       width="18.182745"
+       height="14.142136"
+       x="126.1255"
+       y="35.748253"
+       inkscape:label="FixedObstacle" />
+    <rect
+       style="fill:#ffff00"
+       id="rect4423"
+       width="10.101525"
+       height="13.131983"
+       x="62.671513"
+       y="113.72794"
+       inkscape:label="FixedObstacle" />
+    <rect
+       style="fill:#ffff00"
+       id="rect4425"
+       width="18.182745"
+       height="14.142136"
+       x="122.22845"
+       y="73.846893"
+       inkscape:label="FixedObstacle" />
+    <rect
+       style="fill:#ffff00"
+       id="rect4427"
+       width="23.233509"
+       height="22.223356"
+       x="720.70648"
+       y="18.390022"
+       inkscape:label="FixedObstacle" />
+    <rect
+       style="fill:#ffff00"
+       id="rect4429"
+       width="27.274118"
+       height="18.182745"
+       x="545.55927"
+       y="14.552463"
+       inkscape:label="FixedObstacle" />
+    <rect
+       style="fill:#ffff00"
+       id="rect4431"
+       width="22.223356"
+       height="26.263966"
+       x="725.66083"
+       y="88.424858"
+       inkscape:label="FixedObstacle" />
+    <rect
+       style="fill:#ffff00"
+       id="rect4433"
+       width="15.152288"
+       height="8.0812206"
+       x="733.52155"
+       y="67.008614"
+       inkscape:label="FixedObstacle" />
+    <rect
+       style="fill:#ffff00"
+       id="rect4435"
+       width="18.182745"
+       height="13.131983"
+       x="664.82098"
+       y="246.8455"
+       inkscape:label="FixedObstacle" />
+    <rect
+       style="fill:#ffff00"
+       id="rect4437"
+       width="18.182745"
+       height="19.192898"
+       x="14.147245"
+       y="541.24506"
+       inkscape:label="FixedObstacle" />
+    <rect
+       style="fill:#ffff00"
+       id="rect4439"
+       width="25.253813"
+       height="20.203051"
+       x="11.386518"
+       y="480.52203"
+       inkscape:label="FixedObstacle" />
+    <rect
+       style="fill:#ffff00"
+       id="rect4441"
+       width="11.111678"
+       height="13.131983"
+       x="568.79486"
+       y="511.42346"
+       inkscape:label="FixedObstacle" />
+    <rect
+       style="fill:#ffff00"
+       id="rect4443"
+       width="20.203051"
+       height="13.131983"
+       x="223.62303"
+       y="597.83099"
+       inkscape:label="FixedObstacle" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer4"
+     inkscape:label="Roboti"
+     style="display:inline"
+     transform="translate(16.162441,12.147341)">
+    <rect
+       style="fill:#0000ff;display:inline"
+       id="rect4276"
+       width="22.223356"
+       height="22.223356"
+       x="108.8339"
+       y="131.30457"
+       inkscape:label="Robot" />
+    <rect
+       inkscape:label="Robot"
+       y="99.194954"
+       x="584.37073"
+       height="22.223356"
+       width="22.223356"
+       id="rect4278"
+       style="fill:#0000ff;display:inline" />
+    <rect
+       style="fill:#0000ff;display:inline"
+       id="rect4280"
+       width="22.223356"
+       height="22.223356"
+       x="381.84271"
+       y="381.74033"
+       inkscape:label="Robot" />
+    <rect
+       inkscape:label="Robot"
+       y="270.03403"
+       x="36.499794"
+       height="22.223356"
+       width="22.223356"
+       id="rect4282"
+       style="fill:#0000ff;display:inline" />
+    <rect
+       style="fill:#0000ff;display:inline"
+       id="rect4284"
+       width="22.223356"
+       height="22.223356"
+       x="613.38519"
+       y="210.49957"
+       inkscape:label="Robot" />
+    <rect
+       inkscape:label="Robot"
+       y="594.28784"
+       x="92.154556"
+       height="22.223356"
+       width="22.223356"
+       id="rect4286"
+       style="fill:#0000ff;display:inline" />
+    <rect
+       style="fill:#0000ff;display:inline"
+       id="rect4288"
+       width="22.223356"
+       height="22.223356"
+       x="369.55682"
+       y="228.39006"
+       inkscape:label="Robot" />
+    <rect
+       inkscape:label="Robot"
+       y="214.2283"
+       x="325.33063"
+       height="22.223356"
+       width="22.223356"
+       id="rect4290"
+       style="fill:#0000ff;display:inline" />
+    <rect
+       style="fill:#0000ff;display:inline"
+       id="rect4292"
+       width="22.223356"
+       height="22.223356"
+       x="666.80139"
+       y="430.9057"
+       inkscape:label="Robot" />
+    <rect
+       inkscape:label="Robot"
+       y="18.04851"
+       x="363.28583"
+       height="22.223356"
+       width="22.223356"
+       id="rect4294"
+       style="fill:#0000ff;display:inline" />
+    <rect
+       style="fill:#0000ff;display:inline"
+       id="rect5414"
+       width="22.223356"
+       height="22.223356"
+       x="212.15462"
+       y="225.7164"
+       inkscape:label="Robot" />
+    <rect
+       inkscape:label="Robot"
+       y="154.28786"
+       x="673.58319"
+       height="22.223356"
+       width="22.223356"
+       id="rect5416"
+       style="fill:#0000ff;display:inline" />
+    <rect
+       style="fill:#0000ff;display:inline"
+       id="rect5418"
+       width="22.223356"
+       height="22.223356"
+       x="273.5831"
+       y="11.430693"
+       inkscape:label="Robot" />
+    <rect
+       inkscape:label="Robot"
+       y="232.85922"
+       x="490.72598"
+       height="22.223356"
+       width="22.223356"
+       id="rect5420"
+       style="fill:#0000ff;display:inline" />
+    <rect
+       style="fill:#0000ff;display:inline"
+       id="rect5422"
+       width="22.223356"
+       height="22.223356"
+       x="202.15462"
+       y="144.28778"
+       inkscape:label="Robot" />
+    <rect
+       inkscape:label="Robot"
+       y="402.85925"
+       x="256.44028"
+       height="22.223356"
+       width="22.223356"
+       id="rect5424"
+       style="fill:#0000ff;display:inline" />
+    <rect
+       style="fill:#0000ff;display:inline"
+       id="rect5426"
+       width="22.223356"
+       height="22.223356"
+       x="456.44028"
+       y="342.85922"
+       inkscape:label="Robot" />
+    <rect
+       inkscape:label="Robot"
+       y="30.002054"
+       x="186.44035"
+       height="22.223356"
+       width="22.223356"
+       id="rect5428"
+       style="fill:#0000ff;display:inline" />
+    <rect
+       style="fill:#0000ff;display:inline"
+       id="rect5430"
+       width="22.223356"
+       height="22.223356"
+       x="129.29752"
+       y="491.43069"
+       inkscape:label="Robot" />
+    <rect
+       inkscape:label="Robot"
+       y="525.71637"
+       x="656.44031"
+       height="22.223356"
+       width="22.223356"
+       id="rect5432"
+       style="fill:#0000ff;display:inline" />
+    <rect
+       style="fill:#b3b3b3"
+       id="rect5446"
+       width="8.5714283"
+       height="28.571428"
+       x="218.12332"
+       y="393.56696"
+       inkscape:label="Obstacle" />
+    <rect
+       inkscape:label="Obstacle"
+       y="520.70978"
+       x="279.55182"
+       height="28.571428"
+       width="8.5714283"
+       id="rect5448"
+       style="fill:#b3b3b3" />
+    <rect
+       style="fill:#b3b3b3"
+       id="rect5450"
+       width="8.5714283"
+       height="28.571428"
+       x="386.69467"
+       y="90.709801"
+       inkscape:label="Obstacle" />
+    <rect
+       inkscape:label="Obstacle"
+       y="133.56688"
+       x="505.26611"
+       height="28.571428"
+       width="8.5714283"
+       id="rect5452"
+       style="fill:#b3b3b3" />
+    <rect
+       style="fill:#b3b3b3"
+       id="rect5454"
+       width="8.5714283"
+       height="28.571428"
+       x="255.26608"
+       y="306.42413"
+       inkscape:label="Obstacle" />
+    <rect
+       inkscape:label="Obstacle"
+       y="269.28119"
+       x="462.40894"
+       height="28.571428"
+       width="8.5714283"
+       id="rect5456"
+       style="fill:#b3b3b3" />
+    <rect
+       style="fill:#b3b3b3"
+       id="rect5458"
+       width="8.5714283"
+       height="28.571428"
+       x="138.12323"
+       y="527.8526"
+       inkscape:label="Obstacle" />
+    <rect
+       inkscape:label="Obstacle"
+       y="220.70976"
+       x="180.98038"
+       height="28.571428"
+       width="8.5714283"
+       id="rect5460"
+       style="fill:#b3b3b3" />
+    <rect
+       style="fill:#b3b3b3"
+       id="rect5462"
+       width="8.5714283"
+       height="28.571428"
+       x="259.55179"
+       y="226.4241"
+       inkscape:label="Obstacle" />
+    <rect
+       inkscape:label="Obstacle"
+       y="117.85265"
+       x="566.6947"
+       height="28.571428"
+       width="8.5714283"
+       id="rect5464"
+       style="fill:#b3b3b3" />
+    <path
+       sodipodi:type="arc"
+       style="fill:#4d4d4d"
+       id="path5466"
+       sodipodi:cx="471.42856"
+       sodipodi:cy="245.71428"
+       sodipodi:rx="10"
+       sodipodi:ry="10"
+       d="M 481.42856 245.71428 A 10 10 0 1 1  461.42856,245.71428 A 10 10 0 1 1  481.42856 245.71428 z"
+       transform="translate(-263.3053,27.852652)"
+       inkscape:label="BigPuck" />
+    <path
+       inkscape:label="BigPuck"
+       transform="translate(-367.59102,16.424097)"
+       d="M 481.42856 245.71428 A 10 10 0 1 1  461.42856,245.71428 A 10 10 0 1 1  481.42856 245.71428 z"
+       sodipodi:ry="10"
+       sodipodi:rx="10"
+       sodipodi:cy="245.71428"
+       sodipodi:cx="471.42856"
+       id="path5468"
+       style="fill:#4d4d4d"
+       sodipodi:type="arc" />
+    <path
+       sodipodi:type="arc"
+       style="fill:#4d4d4d"
+       id="path5472"
+       sodipodi:cx="471.42856"
+       sodipodi:cy="245.71428"
+       sodipodi:rx="10"
+       sodipodi:ry="10"
+       d="M 481.42856 245.71428 A 10 10 0 1 1  461.42856,245.71428 A 10 10 0 1 1  481.42856 245.71428 z"
+       transform="translate(50.980416,-143.5759)"
+       inkscape:label="BigPuck" />
+    <path
+       inkscape:label="BigPuck"
+       transform="translate(-357.59102,323.56694)"
+       d="M 481.42856 245.71428 A 10 10 0 1 1  461.42856,245.71428 A 10 10 0 1 1  481.42856 245.71428 z"
+       sodipodi:ry="10"
+       sodipodi:rx="10"
+       sodipodi:cy="245.71428"
+       sodipodi:cx="471.42856"
+       id="path5474"
+       style="fill:#4d4d4d"
+       sodipodi:type="arc" />
+    <path
+       sodipodi:type="arc"
+       style="fill:#4d4d4d"
+       id="path5476"
+       sodipodi:cx="471.42856"
+       sodipodi:cy="245.71428"
+       sodipodi:rx="10"
+       sodipodi:ry="10"
+       d="M 481.42856 245.71428 A 10 10 0 1 1  461.42856,245.71428 A 10 10 0 1 1  481.42856 245.71428 z"
+       transform="translate(-147.591,99.281241)"
+       inkscape:label="BigPuck" />
+    <rect
+       style="fill:#999999"
+       id="rect5478"
+       width="30"
+       height="31.428572"
+       x="312.40903"
+       y="407.8526"
+       inkscape:label="Obstacle" />
+    <rect
+       style="fill:#999999"
+       id="rect5480"
+       width="41.42857"
+       height="5.7142859"
+       x="486.69467"
+       y="422.13837"
+       inkscape:label="Obstacle" />
+    <rect
+       style="fill:#999999"
+       id="rect5482"
+       width="57.142857"
+       height="7.1428571"
+       x="600.98041"
+       y="167.85265"
+       inkscape:label="Obstacle" />
+    <rect
+       style="fill:#999999"
+       id="rect5484"
+       width="62.857143"
+       height="7.1428571"
+       x="300.98035"
+       y="66.42408"
+       inkscape:label="Obstacle" />
+    <rect
+       style="fill:#999999"
+       id="rect5486"
+       width="54.285713"
+       height="5.7142859"
+       x="723.83752"
+       y="380.70981"
+       inkscape:label="Obstacle" />
+  </g>
+</svg>

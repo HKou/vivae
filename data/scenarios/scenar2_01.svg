@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://web.resource.org/cc/"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="700"
+   height="500"
+   id="svg2"
+   inkscape:label="Pozadí"
+   sodipodi:version="0.32"
+   inkscape:version="0.45.1"
+   version="1.0"
+   sodipodi:docbase="C:\data\bakalarka\streda"
+   sodipodi:docname="scenar2_01.svg"
+   inkscape:output_extension="org.inkscape.output.svg.inkscape">
+  <defs
+     id="defs2217" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.98994949"
+     inkscape:cx="224.92715"
+     inkscape:cy="261.51942"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer3"
+     width="700px"
+     height="500px"
+     inkscape:window-width="1226"
+     inkscape:window-height="774"
+     inkscape:window-x="-4"
+     inkscape:window-y="-4" />
+  <metadata
+     id="metadata2220">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Vrstva 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     style="display:inline"
+     sodipodi:insensitive="true">
+    <rect
+       style="fill:#008000"
+       id="rect2223"
+       width="716.19818"
+       height="515.1778"
+       x="-6.0609155"
+       y="-8.1067305"
+       inkscape:label="Grass" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer2"
+     inkscape:label="Layer2"
+     style="display:inline"
+     sodipodi:insensitive="true">
+    <rect
+       style="fill:#800000"
+       id="rect4265"
+       width="557.60419"
+       height="44.446712"
+       x="-16.162441"
+       y="88.867912"
+       inkscape:label="Road" />
+    <rect
+       style="fill:#800000"
+       id="rect4267"
+       width="563.6651"
+       height="41.416256"
+       x="-13.131983"
+       y="371.71063"
+       inkscape:label="Road" />
+    <a
+       id="a4273"
+       inkscape:label="Road">
+      <rect
+         inkscape:label="Road"
+         y="91.898369"
+         x="493.9646"
+         height="317.1879"
+         width="45.456863"
+         id="rect4269"
+         style="fill:#800000" />
+    </a>
+    <rect
+       style="fill:#800000"
+       id="rect4271"
+       width="179.80716"
+       height="41.416256"
+       x="507.09659"
+       y="227.25882"
+       inkscape:label="Road" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer3"
+     inkscape:label="Layer3">
+    <rect
+       style="fill:#ffff00"
+       id="rect4324"
+       width="28.284271"
+       height="225.26402"
+       x="328.29959"
+       y="-13.157493"
+       inkscape:label="FixedObstacle" />
+    <rect
+       style="fill:#ffff00"
+       id="rect4326"
+       width="193.9493"
+       height="32.324883"
+       x="-13.131983"
+       y="285.84766"
+       inkscape:label="FixedObstacle" />
+    <rect
+       style="fill:#ffff00"
+       id="rect4328"
+       width="25.253813"
+       height="121.21831"
+       x="554.57373"
+       y="94.928833"
+       inkscape:label="FixedObstacle" />
+    <rect
+       style="fill:#ffff00"
+       id="rect4330"
+       width="127.27922"
+       height="27.274118"
+       x="557.60419"
+       y="188.87302"
+       inkscape:label="FixedObstacle" />
+    <rect
+       style="fill:#0000ff;display:inline"
+       id="rect4276"
+       width="22.223356"
+       height="22.223356"
+       x="54.548302"
+       y="331.30453"
+       inkscape:label="Robot" />
+    <rect
+       inkscape:label="Robot"
+       y="277.76645"
+       x="534.37073"
+       height="22.223356"
+       width="22.223356"
+       id="rect4278"
+       style="fill:#0000ff;display:inline" />
+    <rect
+       style="fill:#0000ff;display:inline"
+       id="rect4280"
+       width="22.223356"
+       height="22.223356"
+       x="481.84274"
+       y="388.88318"
+       inkscape:label="Robot" />
+    <rect
+       inkscape:label="Robot"
+       y="34.319698"
+       x="405.0712"
+       height="22.223356"
+       width="22.223356"
+       id="rect4282"
+       style="fill:#0000ff;display:inline" />
+    <rect
+       style="fill:#0000ff;display:inline"
+       id="rect4284"
+       width="22.223356"
+       height="22.223356"
+       x="450.52805"
+       y="109.071"
+       inkscape:label="Robot" />
+    <rect
+       inkscape:label="Robot"
+       y="258.57358"
+       x="370.72601"
+       height="22.223356"
+       width="22.223356"
+       id="rect4286"
+       style="fill:#0000ff;display:inline" />
+    <rect
+       style="fill:#0000ff;display:inline"
+       id="rect4288"
+       width="22.223356"
+       height="22.223356"
+       x="83.842583"
+       y="55.532898"
+       inkscape:label="Robot" />
+    <rect
+       inkscape:label="Robot"
+       y="224.22835"
+       x="118.18779"
+       height="22.223356"
+       width="22.223356"
+       id="rect4290"
+       style="fill:#0000ff;display:inline" />
+    <rect
+       style="fill:#0000ff;display:inline"
+       id="rect4292"
+       width="22.223356"
+       height="22.223356"
+       x="93.944206"
+       y="149.4771"
+       inkscape:label="Robot" />
+    <rect
+       inkscape:label="Robot"
+       y="149.47707"
+       x="199.00011"
+       height="22.223356"
+       width="22.223356"
+       id="rect4294"
+       style="fill:#0000ff;display:inline" />
+  </g>
+</svg>
