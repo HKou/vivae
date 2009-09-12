@@ -1,0 +1,11 @@
+Compiling ViVAE:
+
+All libraries are included in the project, just type:
+
+ant
+
+to compile the ViVAE. The test example can be executed using:
+
+ant run
+
+
