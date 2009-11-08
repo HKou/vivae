@@ -14,7 +14,7 @@ package vivae.controllers;
 import java.util.Vector;
 import vivae.arena.parts.Active;
 import vivae.arena.parts.Robot;
-import vivae.arena.parts.Sensor;
+import vivae.arena.parts.sensors.Sensor;
 import vivae.arena.parts.VivaeObject;
 
 /**
