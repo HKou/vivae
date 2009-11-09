@@ -16,15 +16,27 @@ import javax.swing.JFrame;
 import vivae.arena.parts.Active;
 import vivae.arena.Arena;
 import vivae.util.Util;
+import vivae.util.FrictionBuffer;
+import vivae.fitness.FitnessFunction;
+import vivae.fitness.AverageSpeed;
 
 public class FRNNExperiment{
     Arena arena;
     JFrame f;
 
-    public void createArena(String svgFilename){
+    public void createArena(String svgFilename, boolean visible){
         f = new JFrame("FRNN Experiment");
         arena = new Arena(f);
         arena.loadScenario(svgFilename);
+        arena.setAllArenaPartsAntialiased(true);
+        f.setBounds(50, 0, arena.screenWidth, arena.screenHeight+30);
+        f.setResizable(false);
+        f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        f.getContentPane().add(arena);
+        f.setVisible(visible);
+        arena.isVisible=visible;
+        if(!visible)arena.setLoopSleepTime(0);
+        arena.frictionBuffer = new FrictionBuffer(arena);
     }
 
     public void setupExperiment(int snum, double maxDistance, double frictionDistance){
@@ -42,25 +54,22 @@ public class FRNNExperiment{
         }
     }
 
-    public void startExperiment(boolean visible){
-        arena.setAllArenaPartsAntialiased(true);
-        f.setBounds(50, 0, arena.screenWidth, arena.screenHeight+30);
-        f.setResizable(false);
-        f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        f.getContentPane().add(arena);
-        f.setVisible(visible);
-        arena.isVisible=visible;
+    public void startExperiment(){
         arena.start();
-        System.out.println("end");
+        //System.out.println("end");
 
     }
 
     public static void main(String[] args) {
         
         FRNNExperiment exp = new FRNNExperiment();
-        exp.createArena("data/scenarios/arena1.svg");
+        exp.createArena("data/scenarios/arena1.svg",false);
         exp.setupExperiment(5,50,25); // (5+5) sensors, distance sensor up to 50, surface at 25.
-        exp.startExperiment(false);
+        //System.out.print("Experiment start ... ");
+        exp.startExperiment();
+        FitnessFunction avg = new AverageSpeed(exp.arena);
+        System.out.println("average speed fitness = "+ avg.getFitness());
+
     }
 
 }

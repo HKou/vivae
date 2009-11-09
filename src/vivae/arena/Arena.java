@@ -359,14 +359,16 @@ public class Arena extends JPanel implements KeyListener, Runnable {
 //            this.bufferGraphics = (Graphics2D) offscreen.getGraphics();
 //            this.isVisible = true;
 //        }
-        this.setScreenSize(screenWidth, screenHeight);
+        if(isVisible)this.setScreenSize(screenWidth, screenHeight);
         
         
         initWorld();
-        isVisible = true;
+        //isVisible = true;
         //isVisible = false;
         setRunning(true);
+        /*System.out.println("Computing buffer ");
         frictionBuffer = new FrictionBuffer(this); //pokus
+        System.out.println(" - done.");    */
         this.run();
     }
 

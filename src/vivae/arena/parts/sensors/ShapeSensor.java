@@ -15,6 +15,7 @@ import net.phys2d.raw.shapes.Box;
 import vivae.arena.parts.Active;
 import vivae.arena.parts.VivaeObject;
 import vivae.arena.parts.Fixed;
+import vivae.arena.parts.Puck;
 
 /**
  * @author Petr Smejkal
@@ -44,6 +45,7 @@ public class ShapeSensor extends Sensor{
         for (VivaeObject vivae: objects) {
             if(vivae.getBoundingCircleRadius()+ray_length > vivae.getBody().getPosition().distance(ownerBody.getPosition())) {
                 closeObjects.add(vivae);
+                             
             }
         }
         if (!owner.getArena().isEnclosedWithWalls()) return closeObjects;

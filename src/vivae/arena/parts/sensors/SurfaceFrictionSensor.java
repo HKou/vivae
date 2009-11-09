@@ -1,11 +1,6 @@
 package vivae.arena.parts.sensors;
 
-import java.awt.AlphaComposite;
-import java.awt.Color;
-import java.awt.Composite;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
-import java.awt.RenderingHints;
+import java.awt.*;
 import java.awt.geom.*;
 import java.util.Vector;
 import net.phys2d.raw.Body;
@@ -13,23 +8,25 @@ import net.phys2d.raw.shapes.Box;
 import vivae.arena.parts.Active;
 import vivae.arena.parts.VivaeObject;
 import vivae.arena.parts.Fixed;
-import vivae.arena.parts.Puck;
+import vivae.arena.parts.Surface;
 import vivae.util.PathIntersection;
 
 /**
- * @author Petr Smejkal
+ * @author HKou
  */
-public class LineSensor extends Sensor{
+public class SurfaceFrictionSensor extends Sensor{
 
     protected Active owner;
     protected Body ownerBody;
-    protected float ray_length = 50f;
-    protected float ray_width = 1f;
+    protected float ray_length = 5f;
+    protected float ray_width = 5f;
     protected float angle = 0f;
     protected AlphaComposite opacityOfRay = AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 0.20f);
     protected boolean isRayTransparent = true;
     protected int sensorNumber = 0;
     protected int sensorX, sensorY;
+
+    protected double actualFriction=3f;
 
     /**
      * This method removes all VivaeObjects that are further from owner of this Sensor
@@ -38,10 +35,11 @@ public class LineSensor extends Sensor{
      * @param walls Vector of walls that can contain enclosing walls in Arena.
      * @return new Vector of VivaeObjects that are close enough to be in range of Sensor.
      */
-    public Vector<VivaeObject> getCloseVivaes(Vector<VivaeObject> objects, Vector<Fixed> walls) {
+    /* getBoundingCircleradius has to go to VivaeObject instead of Vivae, also surfaces have the b.c.)
+    public Vector<Surface> getCloseSurafaces(Vector<Surface> objects, Vector<Fixed> walls) {
 
         Vector<VivaeObject> closeObjects = new Vector<VivaeObject>();
-        for (VivaeObject vivae: objects) {
+        for (Surface vivae: objects) {
             if(vivae.getBoundingCircleRadius()+ray_length > vivae.getBody().getPosition().distance(ownerBody.getPosition())) {
                 closeObjects.add(vivae);
 
@@ -55,7 +53,7 @@ public class LineSensor extends Sensor{
         if (ray_length > xPos) closeObjects.add(walls.get(3));
         else if (owner.getArena().screenWidth - ray_length < xPos) closeObjects.add(walls.get(2));
         return closeObjects;
-    }
+    } */
 
     /**
      * Method intersects area of Sensor and all VivaeObjects and returns those that
@@ -73,7 +71,7 @@ public class LineSensor extends Sensor{
             if (vivaeObject != this.owner) {
                 GeneralPath gp = new GeneralPath(vivaeObject.getTransformedShape());
                 points = pi.getIntersections(thisPath,gp);
-                //System.out.println(points.length);
+                System.out.println(points.length);
                 /*
                 for(Point2D.Double point : points){
                     System.out.println("x = "+point.getX()+" y = "+point.getY());
@@ -89,12 +87,36 @@ public class LineSensor extends Sensor{
         }
         return objectsOnSight;
     }
+    public double getSurfaceFriction(){
+        updateSurfaceFriction();
+        return actualFriction;
+    }
+
+    public void updateSurfaceFriction(){
+        Vector<Surface> objects = owner.getArena().getSurfaces();
+        java.awt.geom.Rectangle2D shape = this.getArea().getBounds2D();
+        double sx=shape.getCenterX();
+        double sy=shape.getCenterY();
+        boolean contains;
+        int toplevel=0;
+        int level;
+        double friction=3f;
+        for(Surface surface : objects){
+            contains=surface.getArea().contains(sx,sy);
+            //level=surface.getLevel();
+            //if(contains && level>toplevel){toplevel=level;friction=surface.getFriction();}
+            if(contains)actualFriction = surface.getFriction();
+        }
+        //byNow, taking the last surface in the list, layers should be involved
+        //Surface surface = objects.lastElement();
+        //actualFriction = surface.getFriction();
+
+    }
 
 
 
-
-    public LineSensor(Active owner, double angle, int number){
-        this(owner, number);
+    public SurfaceFrictionSensor(Active owner, double angle, int number, double distance){
+        this(owner, number,distance);
         setAngle((float)angle);
 
     }
@@ -108,7 +130,7 @@ public class LineSensor extends Sensor{
     }
      */
 
-    public LineSensor(Active owner, int number) {
+    public SurfaceFrictionSensor(Active owner, int number, double distance) {
         super(owner);
         this.owner = owner;
         this.ownerBody = owner.getBody();
@@ -117,7 +139,7 @@ public class LineSensor extends Sensor{
         body.addExcludedBody(owner.getBody());
         body.setDamping(baseDamping);
         body.setRotDamping(ROT_DAMPING_MUTIPLYING_CONST * baseDamping);
-        setShape(new Line2D.Double(0,0,ray_length, 0));
+        setShape(new Rectangle2D.Double(distance,0,ray_length, ray_width));
     }
 
 
@@ -155,7 +177,11 @@ public class LineSensor extends Sensor{
         Color oldColor = g2.getColor();
         Composite oldComposite = g2.getComposite();
         if(isRayTransparent) g2.setComposite(opacityOfRay);
-        g2.setColor(Color.CYAN);
+        if(actualFriction==1.0){
+            g2.setColor(Color.WHITE);
+        }else {
+            g2.setColor(Color.BLACK);
+        }
         g2.draw(translation.createTransformedShape(getShape()));
         g2.fill(translation.createTransformedShape(getShape()));
         g2.setComposite(opacityFront);

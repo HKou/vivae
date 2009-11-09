@@ -34,7 +34,7 @@ public class Main{
 //        Logger.getLogger("vivae").info("zacatek programu");
         JFrame f = new JFrame("Arena");
         Arena arena = new Arena(f);
-        arena.loadScenario("data/scenarios/ushape.svg");
+        arena.loadScenario("data/scenarios/ushape2.svg");
         Vector<Active> agents = arena.getActives();
         for (Iterator<Active> it = agents.iterator(); it.hasNext();) {
             Active agent = it.next();

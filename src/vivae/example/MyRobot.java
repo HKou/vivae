@@ -27,9 +27,7 @@ import net.phys2d.raw.Body;
 import net.phys2d.raw.World;
 import net.phys2d.raw.shapes.Box;
 import vivae.arena.Arena;
-import vivae.arena.parts.sensors.Sensor;
-import vivae.arena.parts.sensors.ShapeSensor;
-import vivae.arena.parts.sensors.PointSensor;
+import vivae.arena.parts.sensors.*;
 import vivae.arena.parts.Robot;
 
 /**
@@ -82,11 +80,14 @@ public class MyRobot extends Robot {
         for(int i = 0; i < howMany; i++){
             addSensor(startingAngle + i*angleIncrement);
         }
-        PointSensor s =       new PointSensor(this, 0f, sensorNumber);
+        DistanceSensor s = new DistanceSensor(this, 0f, sensorNumber,75);
         sensors.add(s);
         sensorsMap.put(sensorNumber, s);
+        sensorNumber++;          
+        SurfaceFrictionSensor sf = new SurfaceFrictionSensor(this, 0f, sensorNumber,75);
+        sensors.add(sf);
+        sensorsMap.put(sensorNumber, sf);
         sensorNumber++;
-
     }
 
     @Override
@@ -199,7 +200,7 @@ public class MyRobot extends Robot {
     }
 
     public void addSensor(Double angle){
-        Sensor s = new ShapeSensor(this, angle, sensorNumber);
+        Sensor s = new LineSensor(this, angle, sensorNumber);
         sensors.add(s);
         sensorsMap.put(sensorNumber, s);
         sensorNumber++;
