@@ -37,7 +37,7 @@
     </target>
 
     <target name="run">
-        <java classname="vivae.example.Main" fork="true" failonerror="true" dir="${BUILD_DIR}">
+        <java classname="vivae.example.FRNNExperiment" fork="true" failonerror="true" dir="${BUILD_DIR}">
             <classpath>
                 <fileset dir="${LIB_DIR}">
                     <include name="**/*.jar"/>
