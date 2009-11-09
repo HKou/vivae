@@ -63,7 +63,7 @@ public class FRNNExperiment{
     public static void main(String[] args) {
         
         FRNNExperiment exp = new FRNNExperiment();
-        exp.createArena("data/scenarios/arena1.svg",false);
+        exp.createArena("data/scenarios/arena1.svg",true);
         exp.setupExperiment(5,50,25); // (5+5) sensors, distance sensor up to 50, surface at 25.
         //System.out.print("Experiment start ... ");
         exp.startExperiment();
