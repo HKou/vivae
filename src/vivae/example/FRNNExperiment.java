@@ -19,6 +19,7 @@ import vivae.util.Util;
 import vivae.util.FrictionBuffer;
 import vivae.fitness.FitnessFunction;
 import vivae.fitness.AverageSpeed;
+import vivae.fitness.MovablesOnTop;
 
 public class FRNNExperiment{
     Arena arena;
@@ -65,11 +66,11 @@ public class FRNNExperiment{
         FRNNExperiment exp = new FRNNExperiment();
         exp.createArena("data/scenarios/arena1.svg",true);
         exp.setupExperiment(5,50,25); // (5+5) sensors, distance sensor up to 50, surface at 25.
-        //System.out.print("Experiment start ... ");
-        exp.startExperiment();
+        FitnessFunction mot = new MovablesOnTop(exp.arena);//initialize fitness
         FitnessFunction avg = new AverageSpeed(exp.arena);
+        exp.startExperiment();
         System.out.println("average speed fitness = "+ avg.getFitness());
-
+        System.out.println("average ontop fitness = "+ mot.getFitness());
     }
 
 }

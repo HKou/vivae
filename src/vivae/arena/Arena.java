@@ -204,6 +204,7 @@ public class Arena extends JPanel implements KeyListener, Runnable {
 
         for (Passive passive : getPassives()) {
             world.add(passive.getBody());
+            //System.out.println("world.add "+passive+" "+passive.getY());
         }
 
         for (Active active : actives) {
