@@ -1,0 +1,80 @@
+\documentclass{report}
+
+\usepackage{graphicx}
+\usepackage{helvet}
+\usepackage[bookmarksopen=false,
+            pdfpagemode=None,
+            linkcolor=violet,
+	    citecolor=Green,
+	    filecolor=Green,
+	    menucolor=Green,
+	    pagecolor=Green,
+	    urlcolor=violet,
+	    colorlinks=true,
+	    hyperindex]
+	    {hyperref}
+\usepackage{verbatim,framed}
+\usepackage[dvipsnames]{color}
+
+\addtolength{\hoffset}{-1.5cm}
+\addtolength{\textwidth}{3cm}
+\addtolength{\voffset}{-2cm}
+\addtolength{\textheight}{3cm}
+\setlength\parindent{0cm}
+
+\definecolor{violet}{rgb}{0.27,0.27,0.5}
+\definecolor{future}{rgb}{0.5,0.5,0.5}
+\definecolor{colbox}{rgb}{1.0,0.953,0.796}
+\def\vivae{ViVAE}
+
+\newenvironment{colorverbatim}[1][Green]%
+{%
+\definecolor{shadecolor}{rgb}{1.0,0.953,0.796}%
+% supress ugly vertical space which is inserted by
+% environment above and below text:
+\topsep=0ex\relax
+% start shaded and verbatim:
+\shaded
+\verbatim
+}%
+{%
+\endverbatim
+\endshaded
+}%
+
+\newenvironment{colorverbatim*}[1][Green]%
+{%
+\definecolor{shadecolor}{named}{#1}%
+% supress ugly vertical space which is inserted by
+% environment above and below text:
+\topsep=0ex\relax
+% start shaded and verbatim:
+\shaded
+\csname verbatim*\endcsname
+}%
+{%
+\csname endverbatim*\endcsname
+\endshaded
+}%
+ 
+
+\title{
+%\includegraphics{figures/logo}\\
+\vspace{-0.3cm}
+{\huge Visual Vector Agent Environment\\ 
+\vspace*{1cm}Manual}}
+
+%\fontfamily{phv}
+%\selectfont
+\renewcommand{\familydefault}{\sfdefault}
+
+\begin{document}
+\maketitle
+
+
+%\tableofcontents
+
+
+\include{introduction}
+
+\end{document}
