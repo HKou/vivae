@@ -44,8 +44,8 @@
      showgrid="true"
      inkscape:window-width="899"
      inkscape:window-height="686"
-     inkscape:window-x="0"
-     inkscape:window-y="30">
+     inkscape:window-x="8"
+     inkscape:window-y="54">
     <inkscape:grid
        type="xygrid"
        id="grid2395"
@@ -155,7 +155,26 @@
        width="20"
        height="20"
        x="300"
-       y="380"
+       y="400"
        inkscape:label="vivae.example.FRNNControlledRobot" />
+    <path
+       sodipodi:type="arc"
+       style="fill:#999999;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1;stroke-linecap:square;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="path2392"
+       sodipodi:cx="440"
+       sodipodi:cy="200"
+       sodipodi:rx="10"
+       sodipodi:ry="10"
+       d="M 450,200 A 10,10 0 1 1 430,200 A 10,10 0 1 1 450,200 z"
+       inkscape:label="Puck"
+       transform="translate(130,190)" />
+    <rect
+       style="fill:#999999;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1;stroke-linecap:square;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect2394"
+       width="40"
+       height="20"
+       x="290"
+       y="370"
+       inkscape:label="Obstacle" />
   </g>
 </svg>
