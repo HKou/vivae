@@ -24,6 +24,7 @@ import vivae.fitness.MovablesOnTop;
 public class FRNNExperiment{
     Arena arena;
     JFrame f;
+    Vector<Active> agents;
 
     public void createArena(String svgFilename, boolean visible){
         f = new JFrame("FRNN Experiment");
@@ -38,34 +39,61 @@ public class FRNNExperiment{
         arena.isVisible=visible;
         if(!visible)arena.setLoopSleepTime(0);
         arena.frictionBuffer = new FrictionBuffer(arena);
+        agents = arena.getActives();
     }
 
-    public void setupExperiment(int snum, double maxDistance, double frictionDistance){
-        Vector<Active> agents = arena.getActives();
+    /**
+     *
+     * @param number number of the agent/robot
+     * @param wm composed weight matrix of size neurons*(inputs+neurons+1)
+     * @param maxDistance maximum distance of distance sensors
+     * @param frictionDistance distance of friction point sensors
+     *
+     * Number of sensors as well as number of neurons is determined from the size
+     * of the weight matrix. You can use either this function called number of agents time, or
+     * use setupExperiment function, which distributs the weight matrices evenly.
+     */
+    public void setupAgent(int number, double[][] wm,double maxDistance, double frictionDistance){
+        Active agent = agents.get(number);
+        int neurons=wm.length;
+        int snum=(wm[0].length-neurons-1);
         double sangle=-Math.PI/2;
-        double ai=Math.PI/(snum-1);
-        FRNNController frnnc;
-        for (Iterator<Active> it = agents.iterator(); it.hasNext();) {
-            Active agent = it.next();
-            frnnc = new FRNNController();
-            // put a different random FRNN in each controller
-            frnnc.initFRNN(Util.randomArray2D(2,2*snum,-5,5),Util.randomArray2D(2,2,-5,5),Util.randomArray1D(2,-5,5));
-            arena.registerController(agent, frnnc);
-            if(agent instanceof FRNNControlledRobot)((FRNNControlledRobot)agent).setSensors(snum,sangle,ai,maxDistance,frictionDistance);
+        double ai=Math.PI/(snum/2-1);
+        FRNNController frnnc = new FRNNController();
+        frnnc.initFRNN(Util.subMat(wm,0,snum-1),
+                       Util.subMat(wm,snum,snum+neurons-1),
+                       Util.flatten(Util.subMat(wm,snum+neurons,snum+neurons)));
+        arena.registerController(agent, frnnc);
+        if(agent instanceof FRNNControlledRobot)((FRNNControlledRobot)agent).setSensors(snum/2,sangle,ai,maxDistance,frictionDistance);
+    }
+
+    /**
+     *
+     * @param wm Weight matrices to be setup to the controllers. The weight matrices are evenly distributed among the agents.
+     * @param maxDistance
+     * @param frictionDistance
+     */
+    public void setupExperiment(double[][][] wm, double maxDistance, double frictionDistance){
+        int agentnum=agents.size();
+        for(int i=0;i<agentnum;i++){
+            setupAgent(i,wm[i % wm.length],maxDistance,frictionDistance);
         }
     }
 
     public void startExperiment(){
         arena.start();
-        //System.out.println("end");
-
     }
 
     public static void main(String[] args) {
-        
+
         FRNNExperiment exp = new FRNNExperiment();
         exp.createArena("data/scenarios/arena1.svg",true);
-        exp.setupExperiment(5,50,25); // (5+5) sensors, distance sensor up to 50, surface at 25.
+        // random weight matrices as 3D array
+        // 3 robots,
+        int sensors=5; // 5 for distance and 5 for surface
+        int neurons=2;
+        double[][][] wm = Util.randomArray3D(3,neurons,2*sensors+neurons+1,-5,5);
+        exp.setupExperiment(wm,50,25); 
         FitnessFunction mot = new MovablesOnTop(exp.arena);//initialize fitness
         FitnessFunction avg = new AverageSpeed(exp.arena);
         exp.startExperiment();

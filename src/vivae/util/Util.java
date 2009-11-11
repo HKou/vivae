@@ -38,8 +38,26 @@ public class Util {
         return res;
 
     }
+    public static double[][][] randomArray3D(int d,int h, int w, double min, double max){
+        double [][][] res = new double[d][h][w];
+        for(int i=0;i<d;i++)
+            for(int j =0;j<h;j++)
+                for(int k =0;k<w;k++)
+                    res[i][j][k]=Math.random()*(max-min)+min;
+        return res;
+
+    }
 
    public static double euclideanDistance(double x1, double y1, double x2, double y2){
         return Math.sqrt((x1-x2)*(x1-x2)+(y1-y2)*(y1-y2));
     }
+   public static double[][] subMat(double[][] mat, int from, int to){
+       double[][] res = new double[mat.length][to-from+1];
+       for(int i=0;i<mat.length;i++){
+           for(int j=from;j<=to;j++){
+               res[i][j-from]=mat[i][j];
+           }
+       }
+       return res;
+   }
 }
