@@ -1,0 +1,32 @@
+\section{Measurements}
+
+This section presents methods used for measurement of the simulation and obtaing the results. Most common way of doing it is a fitness function that returns a given quality of the simulation. the fitness function is used afterwards. The fitness classes are placed in \package{vivae.fitness} package.
+
+
+\subsection{Fitness Functions}
+
+The concept of fitness functions contains a set of classes, where each class has \method{getFitness()} method that returns the actual value of the fitness measure specified in the class.
+
+The basic usage calls the particular fitness class conructor before the experiment starts to initialize it. The \method{getFitness()} class is called after the experiment ends to get the fitness value.
+
+The fitness functions not neccessarily have to be called after the experiment ends.
+
+\subsubsection{Average Speed}
+
+Average speed fitness \method{getFitness()} method returns the average speed of all agents in the simulation. Each agent represented by an offspring of \class{Robot} class has an odometer $o$, which accumulates the distance it travels each simulation step. The overall fitness is divided by a number of agents $A$ in the simulation and number of simulation steps:
+
+\begin{equation}
+f_v = \frac{\displaystyle\sum_{\forall a}^{A} o_a}{A \cdot steps}
+\end{equation}
+
+\subsubsection{Movables on Top}
+
+\class{MovablesOnTop} fitness class saves sum of distances $d$ of all \class{Movable} offspring classes $M$ in simulation first (in the constructor). At the end of simulation ($t_{end}$) a sum vertical positions is subtracted from the saved value divided by a number of the movable obstacles and normalized to the arena height according to the following equation:
+
+\begin{equation}
+d = \displaystyle\sum_{m}^{M} y_m,\qquad
+f_m = \frac{d^{t_0} - d^{t_{end}}}{M \cdot Y_{m}}
+\end{equation}
+
+where $y_m$ is the vertical position of the movable object center and $Y_m$ is the arena height.
+
