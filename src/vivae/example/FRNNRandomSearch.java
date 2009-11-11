@@ -22,7 +22,7 @@ public class FRNNRandomSearch {
         for(int i=0;i<evals;i++){
             exp.createArena(scenario,false);
             // the 3D matrix has toplevel size of 1, thus it is copied to all controllers
-            double[][][] wm = Util.randomArray3D(1,neurons,2*sensors+neurons+1,-5,5);
+            double[][][] wm = Util.randomArray3D(1,neurons,2*sensors+neurons+1,-15,15);
             exp.setupExperiment(wm,50,25);
             FitnessFunction avg = new AverageSpeed(exp.arena);
             exp.startExperiment();
@@ -43,13 +43,14 @@ public class FRNNRandomSearch {
          }
          FitnessFunction avg = new AverageSpeed(exp.arena);
          exp.startExperiment();
-         System.out.println(" best fitness = "+ avg.getFitness());
+         System.out.println("\nbest fitness = "+ avg.getFitness());
     }
 
     public static void main(String[] arg){
         String scenario = "data/scenarios/arena1.svg";
         FRNNRandomSearch s = new FRNNRandomSearch();
-        double[][] wmbest = s.search(scenario, 5, 2, 100); // 5 sensors of each type, 2 neurons, 20 evaluations
+        double[][] wmbest = s.search(scenario, 5, 5, 100); // 5 sensors of each type, 2 neurons, 20 evaluations
+        System.out.println(Util.toString2Darray(wmbest,","));
         s.play(scenario,wmbest); // play the best one
     }
 }

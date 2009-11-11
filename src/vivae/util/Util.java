@@ -60,4 +60,14 @@ public class Util {
        }
        return res;
    }
+   public static String toString2Darray(double[][] array, String sep){
+       String s="";
+       for(int i=0;i<array.length;i++){
+           for(int j=0;j<array[0].length;j++){
+               s+=array[i][j]+sep;
+           }
+           s+="\n";
+       }
+       return s;
+   }
 }
