@@ -1,0 +1,349 @@
+(* Content-type: application/mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 7.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       145,          7]
+NotebookDataLength[     11498,        340]
+NotebookOptionsPosition[     10114,        288]
+NotebookOutlinePosition[     10479,        304]
+CellTagsIndexPosition[     10436,        301]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["ViVAE Experiment in Mathematica Example", "Title",
+ CellChangeTimes->{{3.46694675605275*^9, 3.466946767909729*^9}}],
+
+Cell[TextData[StyleBox["Random Search",
+ FontColor->GrayLevel[0.5]]], "Subtitle",
+ CellChangeTimes->{{3.466946778026152*^9, 3.466946780818127*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["JLink Setup", "Section",
+ CellChangeTimes->{{3.466944959688495*^9, 3.466944964309367*^9}}],
+
+Cell[BoxData[
+ RowBox[{"Needs", "[", "\"\<JLink`\>\"", "]"}]], "Input",
+ CellChangeTimes->{{3.437904054055002*^9, 3.437904062732763*^9}, {
+   3.437904204440716*^9, 3.437904210838533*^9}, {3.437904278924959*^9, 
+   3.437904279401604*^9}, {3.437904602369675*^9, 3.437904607660923*^9}, {
+   3.437907283615771*^9, 3.437907315093628*^9}, {3.437907431943574*^9, 
+   3.437907446578386*^9}, {3.437907514637661*^9, 3.437907546998101*^9}, 
+   3.438069200670668*^9, {3.438069277629684*^9, 3.438069280864394*^9}, {
+   3.438069329159076*^9, 3.43806933514023*^9}, {3.438069407053009*^9, 
+   3.438069412624109*^9}, {3.438071901763237*^9, 3.438071906405336*^9}, {
+   3.438072289676271*^9, 3.438072353023704*^9}, 3.438075215508434*^9, 
+   3.438075265221158*^9, 3.438526689474917*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"nbdir", "=", 
+   RowBox[{"NotebookDirectory", "[", "]"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.466942129998789*^9, 3.466942133078575*^9}, {
+   3.466942222266789*^9, 3.466942230430807*^9}, 3.466944983856481*^9, {
+   3.466945663124518*^9, 3.466945665046305*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"SetDirectory", "[", "nbdir", "]"}], ";"}]], "Input",
+ CellChangeTimes->{{3.466942546567983*^9, 3.466942556258336*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"jars", "=", 
+   RowBox[{"Map", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"StringJoin", "[", 
+       RowBox[{"nbdir", ",", "#"}], "]"}], "&"}], ",", 
+     RowBox[{"FileNames", "[", 
+      RowBox[{"\"\<*.jar\>\"", ",", 
+       RowBox[{"{", "\"\<*\>\"", "}"}], ",", "Infinity"}], "]"}]}], "]"}]}], 
+  ";"}]], "Input",
+ CellChangeTimes->{{3.466943711432179*^9, 3.466943777602634*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"ReinstallJava", "[", 
+   RowBox[{"CommandLine", "=", "\"\</usr/lib/jvm/java-6-sun/bin/java\>\""}], 
+   "]"}], ";"}]], "Input",
+ CellChangeTimes->{
+  3.437907662284*^9, {3.438069291503421*^9, 3.438069291998826*^9}, 
+   3.4380723021491*^9, {3.438075291508035*^9, 3.438075293939046*^9}, 
+   3.438526691810427*^9, {3.438526731981665*^9, 3.438526745249116*^9}, {
+   3.439554316753744*^9, 3.43955431705705*^9}, 3.439581057968005*^9, {
+   3.466942116526582*^9, 3.466942124598294*^9}, {3.466942240508731*^9, 
+   3.466942254375143*^9}, {3.46694240969147*^9, 3.466942414229581*^9}, {
+   3.466942602974615*^9, 3.466942621908396*^9}, {3.466942741828411*^9, 
+   3.466942785049693*^9}, {3.466942831529829*^9, 3.466942851852815*^9}, 
+   3.466943021131028*^9, {3.466943116678197*^9, 3.466943124542723*^9}, {
+   3.466943255239876*^9, 3.466943267273463*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"AddToClassPath", "[", 
+   RowBox[{"Sequence", "@@", 
+    RowBox[{"Append", "[", 
+     RowBox[{"jars", ",", 
+      RowBox[{"nbdir", "<>", "\"\<build/classes\>\""}]}], "]"}]}], "]"}], 
+  ";"}]], "Input",
+ CellChangeTimes->{{3.46694331044582*^9, 3.466943324190403*^9}, {
+  3.466943801961934*^9, 3.466943805256979*^9}, {3.466945717084114*^9, 
+  3.466945777880045*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Single Experiment Run", "Section",
+ CellChangeTimes->{{3.466945020064853*^9, 3.46694503058639*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"evalOnce", "[", 
+   RowBox[{"scenario_", ",", "wm_", ",", "visualization_"}], "]"}], ":=", 
+  RowBox[{"Module", "[", 
+   RowBox[{
+    RowBox[{"{", "exp", "}"}], ",", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"exp", "=", 
+      RowBox[{
+      "JavaNew", "[", "\"\<vivae.example.JLinkExperiment\>\"", "]"}]}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"exp", "@", 
+      RowBox[{"createArena", "[", 
+       RowBox[{
+        RowBox[{"nbdir", "<>", "scenario"}], ",", "visualization"}], "]"}]}], 
+     ";", "\[IndentingNewLine]", 
+     RowBox[{"exp", "@", 
+      RowBox[{"setupExperiment", "[", 
+       RowBox[{"wm", ",", "50", ",", "25"}], "]"}]}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"exp", "@", 
+      RowBox[{"evaluate", "[", "]"}]}]}]}], "\[IndentingNewLine]", 
+   "]"}]}]], "Input",
+ CellChangeTimes->{{3.466945102837258*^9, 3.466945299997488*^9}, {
+  3.466946418130873*^9, 3.466946425068373*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"sensors", "=", "5"}], ";", 
+  RowBox[{"neurons", "=", "2"}], ";"}]], "Input",
+ CellChangeTimes->{{3.466944078734664*^9, 3.4669440935803022`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"wm", "=", 
+   RowBox[{"RandomReal", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"-", "15"}], ",", "15"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"3", ",", "neurons", ",", 
+       RowBox[{
+        RowBox[{"2", " ", "sensors"}], "+", "neurons", "+", "1"}]}], "}"}]}], 
+    "]"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.466944101289115*^9, 3.466944149785829*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"evalOnce", "[", 
+  RowBox[{"\"\<data/scenarios/arena1.svg\>\"", ",", "wm", ",", "False"}], 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.466945850761515*^9, 3.466945861623984*^9}, {
+  3.466945948886947*^9, 3.466945949852432*^9}, {3.46694643171819*^9, 
+  3.466946433790379*^9}}],
+
+Cell[BoxData["0.04011503371050057`"], "Output",
+ CellChangeTimes->{{3.466945965594834*^9, 3.466945976115479*^9}, {
+   3.466946184764447*^9, 3.466946193255022*^9}, {3.466946435571476*^9, 
+   3.466946445217347*^9}, 3.466946780182447*^9, 3.466947110663287*^9}]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Random Search", "Section",
+ CellChangeTimes->{{3.466945058172773*^9, 3.466945059826412*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"search", "[", 
+   RowBox[{"scenario_", ",", "sensors_", ",", "neurons_", ",", "evals_"}], 
+   "]"}], ":=", 
+  RowBox[{"Last", "@", 
+   RowBox[{"Sort", "@", 
+    RowBox[{"Map", "[", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"evalOnce", "[", 
+          RowBox[{"scenario", ",", "#", ",", "False"}], "]"}], ",", "#"}], 
+        "}"}], "&"}], ",", 
+      RowBox[{"RandomReal", "[", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"-", "15"}], ",", "15"}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"evals", ",", "1", ",", "neurons", ",", 
+          RowBox[{
+           RowBox[{"2", " ", "sensors"}], "+", "neurons", "+", "1"}]}], 
+         "}"}]}], "]"}]}], "]"}]}]}]}]], "Input",
+ CellChangeTimes->{{3.466945283462758*^9, 3.466945404113214*^9}, {
+  3.4669460851771*^9, 3.46694608892891*^9}, {3.466946226002235*^9, 
+  3.466946249547521*^9}, {3.466946872074722*^9, 3.466946872897196*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"res", "=", 
+   RowBox[{"search", "[", 
+    RowBox[{
+    "\"\<data/scenarios/arena1.svg\>\"", ",", "5", ",", "2", ",", "10"}], 
+    "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{"First", "@", "res"}]}], "Input",
+ CellChangeTimes->{{3.466945432355627*^9, 3.466945454974006*^9}, {
+   3.466945989431828*^9, 3.4669459903745*^9}, {3.466946268143002*^9, 
+   3.466946268665648*^9}, {3.466946613126537*^9, 3.466946620701813*^9}, {
+   3.466946663775062*^9, 3.466946664824821*^9}, 3.466946948584326*^9, {
+   3.466947047341551*^9, 3.466947049714274*^9}}],
+
+Cell[BoxData["0.31313973999259537`"], "Output",
+ CellChangeTimes->{3.466947147482226*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"MatrixForm", "[", 
+  RowBox[{"Round", "[", 
+   RowBox[{
+    RowBox[{"res", "\[LeftDoubleBracket]", 
+     RowBox[{"2", ",", "1"}], "\[RightDoubleBracket]"}], ",", "0.1"}], "]"}], 
+  "]"}]], "Input"],
+
+Cell[BoxData[
+ TagBox[
+  RowBox[{"(", "\[NoBreak]", GridBox[{
+     {"4.5`", "5.6000000000000005`", "14.4`", "8.`", 
+      RowBox[{"-", "9.8`"}], "14.4`", 
+      RowBox[{"-", "1.6`"}], "10.200000000000001`", "4.7`", 
+      RowBox[{"-", "5.9`"}], 
+      RowBox[{"-", "13.700000000000001`"}], "13.600000000000001`", "6.2`"},
+     {
+      RowBox[{"-", "11.200000000000001`"}], 
+      RowBox[{"-", "12.200000000000001`"}], 
+      RowBox[{"-", "5.6000000000000005`"}], "0.9`", "7.800000000000001`", 
+      RowBox[{"-", "0.9`"}], 
+      RowBox[{"-", "7.4`"}], "5.6000000000000005`", "9.4`", 
+      "2.4000000000000004`", 
+      RowBox[{"-", "10.4`"}], "2.6`", 
+      RowBox[{"-", "2.1`"}]}
+    },
+    GridBoxAlignment->{
+     "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+      "RowsIndexed" -> {}},
+    GridBoxSpacings->{"Columns" -> {
+        Offset[0.27999999999999997`], {
+         Offset[0.7]}, 
+        Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+        Offset[0.2], {
+         Offset[0.4]}, 
+        Offset[0.2]}, "RowsIndexed" -> {}}], "\[NoBreak]", ")"}],
+  Function[BoxForm`e$, 
+   MatrixForm[BoxForm`e$]]]], "Output",
+ CellChangeTimes->{3.466947040821226*^9, 3.466947147596882*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"evalOnce", "[", 
+  RowBox[{"\"\<data/scenarios/arena1.svg\>\"", ",", 
+   RowBox[{"res", "\[LeftDoubleBracket]", "2", "\[RightDoubleBracket]"}], ",",
+    "True"}], "]"}]], "Input",
+ CellChangeTimes->{{3.466946583965331*^9, 3.466946596082897*^9}}],
+
+Cell[BoxData["0.31313973999259537`"], "Output",
+ CellChangeTimes->{{3.466946593656184*^9, 3.466946608911948*^9}, 
+   3.466946657989691*^9, 3.466946715116376*^9, 3.466946794091151*^9, 
+   3.466946939399752*^9, 3.466947161153053*^9}]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+},
+AutoGeneratedPackage->None,
+WindowSize->{787, 647},
+WindowMargins->{{Automatic, 79}, {Automatic, 38}},
+FrontEndVersion->"7.0 for Linux x86 (32-bit) (November 10, 2008)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[567, 22, 121, 1, 139, "Title"],
+Cell[691, 25, 147, 2, 53, "Subtitle"],
+Cell[CellGroupData[{
+Cell[863, 31, 96, 1, 73, "Section"],
+Cell[962, 34, 766, 11, 32, "Input"],
+Cell[1731, 47, 299, 6, 32, "Input"],
+Cell[2033, 55, 153, 3, 32, "Input"],
+Cell[2189, 60, 420, 12, 32, "Input"],
+Cell[2612, 74, 875, 15, 32, "Input"],
+Cell[3490, 91, 399, 10, 32, "Input"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[3926, 106, 105, 1, 73, "Section"],
+Cell[4034, 109, 960, 25, 143, "Input"],
+Cell[4997, 136, 180, 4, 32, "Input"],
+Cell[5180, 142, 428, 13, 32, "Input"],
+Cell[CellGroupData[{
+Cell[5633, 159, 297, 6, 32, "Input"],
+Cell[5933, 167, 257, 3, 31, "Output"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[6239, 176, 98, 1, 73, "Section"],
+Cell[6340, 179, 998, 27, 77, "Input"],
+Cell[CellGroupData[{
+Cell[7363, 210, 581, 12, 55, "Input"],
+Cell[7947, 224, 89, 1, 31, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[8073, 230, 221, 6, 32, "Input"],
+Cell[8297, 238, 1237, 30, 58, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[9571, 273, 269, 5, 32, "Input"],
+Cell[9843, 280, 231, 3, 31, "Output"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)

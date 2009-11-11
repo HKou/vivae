@@ -42,6 +42,9 @@ public class FRNNExperiment{
         agents = arena.getActives();
     }
 
+    //JLink does not allow to call System.exit()
+
+
     /**
      *
      * @param number number of the agent/robot
