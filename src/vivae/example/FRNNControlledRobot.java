@@ -23,6 +23,8 @@ import net.phys2d.raw.World;
 import net.phys2d.raw.shapes.Box;
 import vivae.arena.Arena;
 import vivae.arena.parts.sensors.*;
+import vivae.arena.parts.Movable;
+import vivae.arena.parts.Passive;
 import vivae.arena.parts.Robot;
 import vivae.arena.parts.VivaeObject;
 import vivae.util.Util;
@@ -135,7 +137,19 @@ public class FRNNControlledRobot extends Robot {
             Sensor s = (Sensor) sIter.next();
             s.moveComponent();
         }
-        odometer+= Util.euclideanDistance(lastX,lastY,x,y);
+
+        final double distance = Util.euclideanDistance(lastX, lastY, x, y);
+        final double velDist = lastVelocity - getSpeed() > 0 ? lastVelocity - getSpeed() : 0;
+        if (velDist > 10) {
+        	crashmeter += velDist;
+        }
+        if (velDist > maxDeceleration) {
+        	maxDeceleration = velDist;
+        }
+        overallDeceleration += velDist;
+        lastVelocity = getSpeed();
+        
+        odometer+= distance;
         lastX=x;
         lastY=y;
         
