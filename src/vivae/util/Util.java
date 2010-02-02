@@ -18,11 +18,12 @@ public class Util {
     }
     public static double[] flatten(double[][] array){
         double[] res = new double[array.length*array[0].length];
-        for(int i=0;i<res.length;i++)res[i]=array[i/array[0].length][i%array[0].length];
+        for(int i=0;i<res.length;i++)
+            res[i] = array[i/array[0].length][i%array[0].length];
         return res;
     }
     public static void main(String[] arg){
-        double [][] d = {{1d,2d,3d},{3d,4d,5d}};
+        double [][] d = {{1d,2d,3d},{4d,5d,6d}};
         double [] r;
         r=flatten(d);
     }
@@ -31,6 +32,7 @@ public class Util {
         for(int i=0;i<size;i++)res[i]=Math.random()*(max-min)+min;
         return res;
     }
+    //TODO: Zkusit pouzit jiny generator nahodnych cisel, Math.random() se IMHO nehodi na generovani matic 
     public static double[][] randomArray2D(int h, int w, double min, double max){
         double [][] res = new double[h][w];
         for(int i=0;i<h;i++)

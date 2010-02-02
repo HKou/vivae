@@ -69,7 +69,6 @@ public class Arena extends JPanel implements KeyListener, Runnable {
     /**
      * The physical world representing the arena (see Phys2D docs).
      */
-//    protected World world = new World(new Vector2f(0.0f, 10.0f), 10, new QuadSpaceStrategy(20, 5));
     protected World world = new World(new Vector2f(0.0f, 10.0f), 10, new QuadSpaceStrategy(2, 1));
     /**
      * Vector of Walls as Fixed objects in the arena.
@@ -593,14 +592,9 @@ public class Arena extends JPanel implements KeyListener, Runnable {
      */
     @Override
     public void run() { 
-//        while (true) {
         while (isRunning) {
             for (int i = 0; i < worldStepsPerLoop; i++) {
                 world.step();
-//                if (stepsDone % 100 == 0) {
-//                    System.out.println("println = "+stepsDone);
-
-//                }
                 if(capture){
                   if(stepsDone%5==0){
                     String s = new PrintfFormat("%06d").sprintf(stepsDone);

@@ -2,10 +2,6 @@ package vivae.fitness;
 
 import vivae.arena.Arena;
 import vivae.arena.parts.Active;
-import vivae.example.FRNNController;
-import vivae.example.FRNNControlledRobot;
-import vivae.util.Util;
-
 import java.util.Iterator;
 import java.util.Vector;
 
@@ -22,6 +18,7 @@ public class AverageSpeed extends FitnessFunction{
         this.arena = arena;
     }
 
+    @Override
     public double getFitness(){
         double res=0d;
         Vector<Active> actives = arena.getActives();

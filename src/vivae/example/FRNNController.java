@@ -27,7 +27,6 @@ public class FRNNController extends RobotWithSensorController {
 
     public void initFRNN(double[][] wIn, double[][] wRec, double[] wThr) {
         frnn.init(wIn, wRec, wThr);
-
     }
 
     @Override

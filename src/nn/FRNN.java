@@ -1,5 +1,7 @@
 package nn;
 
+import static java.lang.System.*;
+
 /**
  * Created by IntelliJ IDEA.
  * User: koutnij
@@ -14,9 +16,6 @@ public class FRNN {
     double[][] wRec;
     double[] wThr;
 
-    public void FRNN(){
-
-    }
 
     public void init(double[][] wIn, double[][] wRec, double[] wThr){
          state = new double[wThr.length];
@@ -26,13 +25,10 @@ public class FRNN {
          this.wRec = new double[wRec.length][wRec[0].length];
          this.wThr = new double[wThr.length];
          for(int i=0;i<wIn.length;i++)
-           for(int j=0;j<wIn[0].length;j++)
-             this.wIn[i][j]=wIn[i][j];
+             arraycopy(wIn[i], 0, this.wIn[i], 0, wIn[0].length);
          for(int i=0;i<wRec.length;i++)
-           for(int j=0;j<wRec[0].length;j++)
-             this.wRec[i][j]=wRec[i][j];
-         for(int i=0;i<wThr.length;i++)
-             this.wThr[i]=wThr[i];
+             arraycopy(wRec[i], 0, this.wRec[i], 0, wRec[0].length);
+        arraycopy(wThr, 0, this.wThr, 0, wThr.length);
     }
 
     public void init(double[][] wIn, double[][] wRec, double[] wThr, double[] state){
@@ -41,7 +37,7 @@ public class FRNN {
     }
 
     public void setState(double[] state){
-        for(int i=0;i<state.length;i++)this.state[i]=state[i];
+        arraycopy(state, 0, this.state, 0, state.length);
     }
 
     public double[] evalNetwork(double[] in){
@@ -53,12 +49,12 @@ public class FRNN {
              exc+=wThr[i];
              newState[i]=sigmoidBipolar(exc);
          }
-         for(int i=0;i<state.length;i++)state[i]=newState[i];
+        arraycopy(newState, 0, state, 0, state.length);
          return state;
     }
 
     public double sigmoidBipolar(double x){
-        return 2/(1+Math.exp(-x))-1;
+        return (2 / (1 + Math.exp(-x))) - 1;
     }
     public double sigmoidUnipolar(double x){
         return 1/(1+Math.exp(-x));
@@ -75,8 +71,8 @@ public class FRNN {
         double[] eval;
         for(int k=0;k<5;k++){
             eval=frnn.evalNetwork(in);
-            for(int i=0;i<3;i++)System.out.print(eval[i]+" ");
-            System.out.println("");
+            for(int i=0;i<3;i++) out.print(eval[i]+" ");
+            out.println("");
            
         }
     }

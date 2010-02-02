@@ -90,7 +90,8 @@ public class FRNNExperiment{
     public static void main(String[] args) {
 
         FRNNExperiment exp = new FRNNExperiment();
-        exp.createArena("data/scenarios/arena3.svg",true);
+//        exp.createArena("data/scenarios/arena2.svg",true);
+        exp.createArena("data/scenarios/ushape2.svg",true);
         // random weight matrices as 3D array
         // 3 robots,
         int sensors=5; // 5 for distance and 5 for surface
