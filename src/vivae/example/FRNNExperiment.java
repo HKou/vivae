@@ -15,9 +15,9 @@ import vivae.arena.parts.Active;
 import vivae.arena.Arena;
 import vivae.util.Util;
 import vivae.util.FrictionBuffer;
-//import vivae.fitness.FitnessFunction;
-//import vivae.fitness.AverageSpeed;
-//import vivae.fitness.MovablesOnTop;
+import vivae.fitness.FitnessFunction;
+import vivae.fitness.AverageSpeed;
+import vivae.fitness.MovablesOnTop;
 
 public class FRNNExperiment {
 
@@ -124,21 +124,21 @@ public class FRNNExperiment {
     
 
 
-//    public static void main(String[] args) {
-//
-//        FRNNExperiment exp = new FRNNExperiment();
-//        exp.createArena("data/scenarios/ushape2.svg",true);
-//        // random weight matrices as 3D array
-//        // 3 robots,
-//        int sensors=5; // 5 for distance and 5 for surface
-//        int neurons=2;
-//        double[][][] wm = Util.randomArray3D(3,neurons,2*sensors+neurons+1,-5,5);
-//        exp.setupExperiment(wm,50,25);
-//        FitnessFunction mot = new MovablesOnTop(exp.arena);//initialize fitness
-//        FitnessFunction avg = new AverageSpeed(exp.arena);
-//        exp.startExperiment();
-//        System.out.println("average speed fitness = "+ avg.getFitness());
-//        System.out.println("average ontop fitness = "+ mot.getFitness());
-//    }
+    public static void main(String[] args) {
+
+        FRNNExperiment exp = new FRNNExperiment();
+        exp.createArena("data/scenarios/ushape2.svg",true);
+        // random weight matrices as 3D array
+        // 3 robots,
+        int sensors=5; // 5 for distance and 5 for surface
+        int neurons=2;
+        double[][][] wm = Util.randomArray3D(3,neurons,2*sensors+neurons+1,-5,5);
+        exp.setupExperiment(wm,50,25);
+        FitnessFunction mot = new MovablesOnTop(exp.arena);//initialize fitness
+        FitnessFunction avg = new AverageSpeed(exp.arena);
+        exp.startExperiment();
+        System.out.println("average speed fitness = "+ avg.getFitness());
+        System.out.println("average ontop fitness = "+ mot.getFitness());
+    }
 }
 

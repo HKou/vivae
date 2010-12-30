@@ -1,4 +1,4 @@
-package vivae.belkaram;
+package vivae.cea;
 
 import nn.FRNN;
 

@@ -1,10 +1,10 @@
-package vivae.belkaram.main;
+package vivae.cea.main;
 
 import com.google.common.collect.ImmutableMap;
 import java.util.concurrent.ExecutionException;
 import org.uncommons.maths.random.SeedException;
-import vivae.belkaram.ContinuousEvolutionSearch;
-import vivae.belkaram.Solution;
+import vivae.cea.ContinuousEvolutionSearch;
+import vivae.cea.Solution;
 
 /**
  *

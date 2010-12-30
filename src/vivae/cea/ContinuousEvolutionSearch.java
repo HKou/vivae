@@ -1,4 +1,4 @@
-package vivae.belkaram;
+package vivae.cea;
 
 import com.google.common.collect.ImmutableMap;
 import java.util.ArrayList;
@@ -11,12 +11,12 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 import nn.FRNN;
 import org.uncommons.maths.random.SeedException;
-import vivae.belkaram.main.ContinuousSearchMain.Options;
+import vivae.cea.main.ContinuousSearchMain.Options;
 import vivae.example.FRNNExperiment;
 import vivae.fitness.AverageSpeed;
 import vivae.fitness.FitnessFunction;
 import vivae.util.Util;
-import static vivae.belkaram.MathUtil.clip;
+import static vivae.cea.MathUtil.clip;
 
 /**
  * From the paper CONTINUAL EVOLUTION ALGORITHM FOR BUILDING OF ANN-BASED MODELS,
