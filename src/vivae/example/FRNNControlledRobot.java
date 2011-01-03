@@ -6,7 +6,6 @@
  * at Czech Technical University in Prague
  * in 2008
  */
-
 package vivae.example;
 
 import java.awt.*;
@@ -14,7 +13,6 @@ import java.awt.geom.AffineTransform;
 import java.awt.geom.Rectangle2D;
 import java.util.HashMap;
 import java.util.Iterator;
-import java.util.Map;
 import java.util.Vector;
 
 import net.phys2d.math.Vector2f;
@@ -23,8 +21,6 @@ import net.phys2d.raw.World;
 import net.phys2d.raw.shapes.Box;
 import vivae.arena.Arena;
 import vivae.arena.parts.sensors.*;
-import vivae.arena.parts.Movable;
-import vivae.arena.parts.Passive;
 import vivae.arena.parts.Robot;
 import vivae.arena.parts.VivaeObject;
 import vivae.util.Util;
@@ -34,16 +30,6 @@ import vivae.util.Util;
  */
 public class FRNNControlledRobot extends Robot {
 
-    public static int robotsCounter = 0;
-    public static final float ACCELERATION = 15f;
-    public static final float ROTATION = 80f;
-    protected static final float MAX_SPEED = 50f;
-    protected int diameter;
-    protected Vector<Sensor> sensors; // = new Vector<Sensor>();
-    protected boolean isShowingSensors = true;
-    protected int sensorNumber = 0;
-    protected Map<Integer, Sensor> sensorsMap; // = new HashMap<Integer, Sensor>();
-    protected World world;
     protected double[][] sensoryData;
 
     public FRNNControlledRobot(float x, float y) {
@@ -52,9 +38,9 @@ public class FRNNControlledRobot extends Robot {
         sensorsMap = new HashMap<Integer, Sensor>();
     }
 
-
     public FRNNControlledRobot(Shape shape, int layer, Arena arena) {
-        this((float) shape.getBounds2D().getCenterX(), (float) shape.getBounds2D().getCenterY(), arena);
+        this((float) shape.getBounds2D().getCenterX(),
+                (float) shape.getBounds2D().getCenterY(), arena);
     }
 
     public FRNNControlledRobot(float x, float y, Arena arena) {
@@ -67,16 +53,16 @@ public class FRNNControlledRobot extends Robot {
         body = new Body("Robot", new Box(diameter, diameter), 50f);
         body.setPosition((float) x, (float) y);
         body.setRotation(0);
-        body.setDamping(new Float(baseDamping));
-        body.setRotDamping(new Float(ROT_DAMPING_MUTIPLYING_CONST * baseDamping));
+        body.setDamping(baseDamping);
+        body.setRotDamping(ROT_DAMPING_MUTIPLYING_CONST * baseDamping);
         setShape(new Rectangle2D.Double(0, 0, diameter, diameter));
         Rectangle r = getShape().getBounds();
-        centerX = new Float(r.getCenterX());
-        centerY = new Float(r.getCenterY());
-        //setSensors(3, -Math.PI/6, Math.PI/6);
+        centerX = (float) r.getCenterX();
+        centerY = (float) r.getCenterY();
     }
 
-    public void setSensors(int howMany, double startingAngle, double angleIncrement, double maxDistance, double frictionDistance) {
+    public void setSensors(int howMany, double startingAngle, double angleIncrement,
+            double maxDistance, double frictionDistance) {
         for (int i = 0; i < howMany; i++) {
             addDistanceSensor(startingAngle + i * angleIncrement, maxDistance);
         }
@@ -99,7 +85,7 @@ public class FRNNControlledRobot extends Robot {
         sensorNumber++;
     }
 
-    public double[][] getSensoryData(/*Vector<VivaeObject> allObjects*/) {
+    public double[][] getSensoryData() {
         double[][] data = new double[2][sensorNumber / 2];
         Vector<VivaeObject> allObjects = getArena().getVivaes();
         int di = 0, si = 0;
@@ -113,7 +99,7 @@ public class FRNNControlledRobot extends Robot {
             }
             if (sensor instanceof SurfaceFrictionSensor) {
                 v = ((SurfaceFrictionSensor) sensor).getSurfaceFriction();
-                data[1][si] = Util.rescale(v,1,10);   // should min and max friction in the arena
+                data[1][si] = Util.rescale(v, 1, 10);   // should min and max friction in the arena
                 si++;
             }
         }
@@ -121,13 +107,8 @@ public class FRNNControlledRobot extends Robot {
         return data;
     }
 
-
     @Override
     public void moveComponent() {
-//        speed = body.getVelocity().length();
-//        if (speed != 0) {
-//            inMotion = true;
-//        }
         inMotion = true;
         direction = body.getRotation();
         net.phys2d.math.ROVector2f p = body.getPosition();
@@ -141,18 +122,18 @@ public class FRNNControlledRobot extends Robot {
         final double distance = Util.euclideanDistance(lastX, lastY, x, y);
         final double velDist = lastVelocity - getSpeed() > 0 ? lastVelocity - getSpeed() : 0;
         if (velDist > 10) {
-        	crashmeter += velDist;
+            crashmeter += velDist;
         }
         if (velDist > maxDeceleration) {
-        	maxDeceleration = velDist;
+            maxDeceleration = velDist;
         }
         overallDeceleration += velDist;
         lastVelocity = getSpeed();
-        
-        odometer+= distance;
-        lastX=x;
-        lastY=y;
-        
+
+        odometer += distance;
+        lastX = x;
+        lastY = y;
+
 
     }
 
@@ -183,14 +164,17 @@ public class FRNNControlledRobot extends Robot {
                 s.paintComponent(g2);
             }
         }
-        if (isShowingStatusFrame) paintStatusFrame(g2);
+        if (isShowingStatusFrame) {
+            paintStatusFrame(g2);
+        }
         g2.setColor(oldColor);
-        if (isAntialiased()) g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, hint);
+        if (isAntialiased()) {
+            g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, hint);
+        }
     }
 
     @Override
     public void accelerate(float s) {
-
         setSpeed(body.getVelocity().length());
         s = Math.min(s, getMaxSpeed() - (float) getSpeed());
         float dx = (float) (s * (float) Math.cos(body.getRotation() - Math.PI / 2));
@@ -199,6 +183,7 @@ public class FRNNControlledRobot extends Robot {
 
     }
 
+    @Override
     public void decelerate(float s) {
         setSpeed(body.getVelocity().length());
         s = Math.max(s, 0);
@@ -243,29 +228,32 @@ public class FRNNControlledRobot extends Robot {
         return "Robot " + myNumber;
     }
 
+    @Override
     public Vector<Sensor> getSensors() {
         return sensors;
     }
-
 
     @Override
     public void reportObjectOnSight(Sensor s, Body b) {
         System.out.println("Object seen from sensor " + s);
     }
 
-
+    @Override
     public World getWorld() {
         return world;
     }
 
+    @Override
     public void setWorld(World world) {
         this.world = world;
     }
 
+    @Override
     public void setShowingSensors(boolean showingSensors) {
         isShowingSensors = showingSensors;
     }
 
+    @Override
     public void paintStatusFrame(Graphics g, int baseX, int baseY) {
         Graphics2D g2 = (Graphics2D) g;
         Color oldColor = g2.getColor();
@@ -283,13 +271,9 @@ public class FRNNControlledRobot extends Robot {
         baseY += 15;
         g2.drawString(String.format(getActiveName() + "  #%d", myNumber), baseX, baseY);
         baseY += STATUS_FRAME_LINE_HEIGHT;
-//		g2.drawString(String.format("speed: %3.1f", body.getVelocity().length()) , baseX, baseY);
-//		baseY +=STATUS_FRAME_LINE_HEIGHT;
         g2.drawString(String.format("x: %4.0f", x), baseX, baseY);
         baseY += STATUS_FRAME_LINE_HEIGHT;
         g2.drawString(String.format("y: %4.0f", y), baseX, baseY);
-//        baseY += STATUS_FRAME_LINE_HEIGHT;
-//        g2.drawString(String.format("friction: %2.1f", getFriction()), baseX, baseY);
         baseY += STATUS_FRAME_LINE_HEIGHT;
         String s = "";
         for (int j = 0; j < sensoryData[0].length; j++) {
@@ -305,6 +289,5 @@ public class FRNNControlledRobot extends Robot {
         g2.setComposite(oldComposite);
         g2.setColor(oldColor);
     }
-
 }
 

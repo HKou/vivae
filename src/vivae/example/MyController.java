@@ -6,7 +6,6 @@
  * at Czech Technical University in Prague
  * in 2008
  */
-
 package vivae.example;
 
 import vivae.controllers.*;
@@ -27,32 +26,35 @@ import vivae.arena.parts.sensors.SurfaceFrictionSensor;
  * It's up to you to create more advanced controllers!!
  * @author Petr Smejkal
  */
-public class MyController extends RobotWithSensorController{
+public class MyController extends RobotWithSensorController {
 
     @Override
     public void moveControlledObject() {
-       allObjects = robot.getArena().getVivaes();
-       Vector<Surface> surfaces = robot.getArena().getSurfaces();
-       float angle = 0f; 
-        for (Iterator<Sensor> it = sensors.iterator(); it.hasNext();) {
-            Sensor sensor = it.next();
-            if(sensor instanceof LineSensor) {
+        allObjects = robot.getArena().getVivaes();
+//        Vector<Surface> surfaces = robot.getArena().getSurfaces();
+        float angle = 0f;
+        for (Sensor sensor : sensors) {
+            if (sensor instanceof LineSensor) {
                 objectsOnSight = sensor.getVivaesOnSight(allObjects);
-                if(objectsOnSight != null) {
-                    if(!objectsOnSight.isEmpty()) {
+                if (objectsOnSight != null) {
+                    if (!objectsOnSight.isEmpty()) {
                         angle = sensor.getAngle();
-                        if(angle > 0 && !(objectsOnSight.get(0) instanceof Movable)) robot.rotate(-robot.getRotationIncrement());
-                        else if(angle <= 0 && !(objectsOnSight.get(0) instanceof Movable)) {
+                        if (angle > 0 && !(objectsOnSight.get(0) instanceof Movable)) {
+                            robot.rotate(-robot.getRotationIncrement());
+                        } else if (angle <= 0 && !(objectsOnSight.get(0) instanceof Movable)) {
                             robot.rotate(robot.getRotationIncrement());
                         }
                         break;
                     }
                 }
             }
-            if(sensor instanceof DistanceSensor)System.out.println(((DistanceSensor)sensor).getDistance(allObjects));
-            if(sensor instanceof SurfaceFrictionSensor)System.out.println(((SurfaceFrictionSensor)sensor).getSurfaceFriction());
+            if (sensor instanceof DistanceSensor) {
+                System.out.println(((DistanceSensor) sensor).getDistance(allObjects));
+            }
+            if (sensor instanceof SurfaceFrictionSensor) {
+                System.out.println(((SurfaceFrictionSensor) sensor).getSurfaceFriction());
+            }
         }
         controlledObject.accelerate(controlledObject.getAcceleration());
     }
-
 }

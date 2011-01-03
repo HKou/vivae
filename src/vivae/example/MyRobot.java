@@ -6,7 +6,6 @@
  * at Czech Technical University in Prague
  * in 2008
  */
-
 package vivae.example;
 
 import java.awt.Color;
@@ -35,7 +34,7 @@ import vivae.arena.parts.Robot;
  */
 public class MyRobot extends Robot {
 
-    public static int robotsCounter =0;
+    public static int robotsCounter = 0;
     public static final float ACCELERATION = 15f;
     public static final float ROTATION = 80f;
     protected static final float MAX_SPEED = 50f;
@@ -46,15 +45,14 @@ public class MyRobot extends Robot {
     protected Map<Integer, Sensor> sensorsMap; // = new HashMap<Integer, Sensor>();
     protected World world;
 
-    public MyRobot(float x, float y){
-         super(x,y);
-         sensors = new Vector<Sensor>();
-         sensorsMap = new HashMap<Integer,Sensor>();
+    public MyRobot(float x, float y) {
+        super(x, y);
+        sensors = new Vector<Sensor>();
+        sensorsMap = new HashMap<Integer, Sensor>();
     }
 
-
     public MyRobot(Shape shape, int layer, Arena arena) {
-        this((float) shape.getBounds2D().getCenterX(), (float)shape.getBounds2D().getCenterY(), arena);
+        this((float) shape.getBounds2D().getCenterX(), (float) shape.getBounds2D().getCenterY(), arena);
     }
 
     public MyRobot(float x, float y, Arena arena) {
@@ -69,48 +67,43 @@ public class MyRobot extends Robot {
         body.setRotation(0);
         body.setDamping(new Float(baseDamping));
         body.setRotDamping(new Float(ROT_DAMPING_MUTIPLYING_CONST * baseDamping));
-        setShape(new Rectangle2D.Double(0,0,diameter, diameter));
+        setShape(new Rectangle2D.Double(0, 0, diameter, diameter));
         Rectangle r = getShape().getBounds();
         centerX = new Float(r.getCenterX());
         centerY = new Float(r.getCenterY());
-        setSensors(3, -Math.PI/6, Math.PI/6);
+        setSensors(3, -Math.PI / 6, Math.PI / 6);
     }
 
-    public void setSensors(int howMany, double startingAngle, double angleIncrement){
-        for(int i = 0; i < howMany; i++){
-            addSensor(startingAngle + i*angleIncrement);
+    public void setSensors(int howMany, double startingAngle, double angleIncrement) {
+        for (int i = 0; i < howMany; i++) {
+            addSensor(startingAngle + i * angleIncrement);
         }
-        DistanceSensor s = new DistanceSensor(this, 0f, sensorNumber,75);
+        DistanceSensor s = new DistanceSensor(this, 0f, sensorNumber, 75);
         sensors.add(s);
         sensorsMap.put(sensorNumber, s);
-        sensorNumber++;          
-        SurfaceFrictionSensor sf = new SurfaceFrictionSensor(this, 0f, sensorNumber,75);
+        sensorNumber++;
+        SurfaceFrictionSensor sf = new SurfaceFrictionSensor(this, 0f, sensorNumber, 75);
         sensors.add(sf);
         sensorsMap.put(sensorNumber, sf);
         sensorNumber++;
     }
 
     @Override
-    public void moveComponent(){
-//        speed = body.getVelocity().length();
-//        if (speed != 0) {
-//            inMotion = true;
-//        }
+    public void moveComponent() {
         inMotion = true;
         direction = body.getRotation();
-        net.phys2d.math.ROVector2f p =body.getPosition();
+        net.phys2d.math.ROVector2f p = body.getPosition();
         x = p.getX();
         y = p.getY();
-        for (Iterator<Sensor> sIter = sensors.iterator(); sIter.hasNext();) {
-            Sensor s = (Sensor) sIter.next();
+        for (Sensor s : sensors) {
             s.moveComponent();
         }
 
     }
 
     @Override
-    public AffineTransform getTranslation(){
-        AffineTransform af = AffineTransform.getTranslateInstance(x - diameter/2, y - diameter/2);
+    public AffineTransform getTranslation() {
+        AffineTransform af = AffineTransform.getTranslateInstance(x - diameter / 2, y - diameter / 2);
         af.rotate(direction, centerX, centerY);
         return af;
     }
@@ -119,25 +112,29 @@ public class MyRobot extends Robot {
     public void paintComponent(Graphics g) {
         Graphics2D g2 = (Graphics2D) g;
         Object hint = new Object();
-        if(isAntialiased()){
+        if (isAntialiased()) {
             hint = g2.getRenderingHint(RenderingHints.KEY_ANTIALIASING);
-            g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING,RenderingHints.VALUE_ANTIALIAS_ON);
+            g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
         }
         translation = getTranslation();
         Color oldColor = g2.getColor();
-        g2.setColor(new Color(230,230,250));
+        g2.setColor(new Color(230, 230, 250));
         g2.fill(translation.createTransformedShape(getShape()));
         g2.setColor(Color.BLACK);
         g2.draw(translation.createTransformedShape(getShape()));
-        if(isShowingSensors){
-                for (Iterator<Sensor> sIter = sensors.iterator(); sIter.hasNext();) {
-                        Sensor s = (Sensor) sIter.next();
-                        s.paintComponent(g2);
-                }
+        if (isShowingSensors) {
+            for (Iterator<Sensor> sIter = sensors.iterator(); sIter.hasNext();) {
+                Sensor s = (Sensor) sIter.next();
+                s.paintComponent(g2);
+            }
         }
-        if(isShowingStatusFrame) paintStatusFrame(g2);
+        if (isShowingStatusFrame) {
+            paintStatusFrame(g2);
+        }
         g2.setColor(oldColor);
-        if(isAntialiased()) g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING,hint);
+        if (isAntialiased()) {
+            g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, hint);
+        }
     }
 
     @Override
@@ -145,8 +142,8 @@ public class MyRobot extends Robot {
 
         setSpeed(body.getVelocity().length());
         s = Math.min(s, getMaxSpeed() - (float) getSpeed());
-        float dx = (float) (s*(float)Math.cos(body.getRotation() - Math.PI/2));
-        float dy = (float) (s*(float)Math.sin(body.getRotation() - Math.PI/2));
+        float dx = (float) (s * (float) Math.cos(body.getRotation() - Math.PI / 2));
+        float dy = (float) (s * (float) Math.sin(body.getRotation() - Math.PI / 2));
         body.adjustVelocity(new Vector2f(dx, dy));
 
     }
@@ -154,8 +151,8 @@ public class MyRobot extends Robot {
     public void decelerate(float s) {
         setSpeed(body.getVelocity().length());
         s = Math.max(s, 0);
-        float dx = (float) (s*(float)Math.cos(body.getRotation() - Math.PI/2));
-        float dy = (float) (s*(float)Math.sin(body.getRotation() - Math.PI/2));
+        float dx = (float) (s * (float) Math.cos(body.getRotation() - Math.PI / 2));
+        float dy = (float) (s * (float) Math.sin(body.getRotation() - Math.PI / 2));
         body.adjustVelocity(new Vector2f(-dx, -dy));
     }
 
@@ -191,7 +188,7 @@ public class MyRobot extends Robot {
     }
 
     @Override
-    public String toString(){
+    public String toString() {
         return "Robot " + myNumber;
     }
 
@@ -199,7 +196,7 @@ public class MyRobot extends Robot {
         return sensors;
     }
 
-    public void addSensor(Double angle){
+    public void addSensor(Double angle) {
         Sensor s = new LineSensor(this, angle, sensorNumber);
         sensors.add(s);
         sensorsMap.put(sensorNumber, s);
@@ -210,8 +207,6 @@ public class MyRobot extends Robot {
     public void reportObjectOnSight(Sensor s, Body b) {
         System.out.println("Object seen from sensor " + s);
     }
-
-
 
     public World getWorld() {
         return world;
@@ -224,6 +219,5 @@ public class MyRobot extends Robot {
     public void setShowingSensors(boolean showingSensors) {
         isShowingSensors = showingSensors;
     }
-
 }
 
