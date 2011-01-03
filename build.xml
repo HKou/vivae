@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 
-<project name="game-m" basedir="." default="compile">
+<project name="vivae" basedir="." default="compile">
     <property name="BUILD_DIR" value="build"/>
     <property name="CLASSES_DIR" value="${BUILD_DIR}/classes"/>
     <property name="SRC_DIR" value="src"/>
@@ -24,7 +24,7 @@
     </target>
 
     <target name="compile" depends="make_dirs">
-        <javac srcdir="${SRC_DIR}" destdir="${CLASSES_DIR}">
+        <javac srcdir="${SRC_DIR}" destdir="${CLASSES_DIR}" debug="true">
             <classpath>
                 <fileset dir="${LIB_DIR}">
                     <include name="**/*.jar"/>
@@ -38,6 +38,17 @@
 
     <target name="run">
         <java classname="vivae.example.FRNNExperiment" fork="true" failonerror="true" dir="${BUILD_DIR}">
+            <classpath>
+                <fileset dir="${LIB_DIR}">
+                    <include name="**/*.jar"/>
+                </fileset>
+                <pathelement location="${CLASSES_DIR}"/>
+            </classpath>
+        </java>
+    </target>
+
+    <target name="cea">
+        <java classname="vivae.belkaram.main.ContinuousSearchMain" fork="true" failonerror="true" dir="${BUILD_DIR}">
             <classpath>
                 <fileset dir="${LIB_DIR}">
                     <include name="**/*.jar"/>
