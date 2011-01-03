@@ -127,12 +127,13 @@ public class FRNNExperiment {
     public static void main(String[] args) {
 
         FRNNExperiment exp = new FRNNExperiment();
-        exp.createArena("data/scenarios/ushape2.svg",true);
+        exp.createArena("data/scenarios/arena1.svg",true);
         // random weight matrices as 3D array
         // 3 robots,
         int sensors=5; // 5 for distance and 5 for surface
         int neurons=2;
-        double[][][] wm = Util.randomArray3D(3,neurons,2*sensors+neurons+1,-5,5);
+        int robots=3;
+        double[][][] wm = Util.randomArray3D(robots,neurons,2*sensors+neurons+1,-5,5);
         exp.setupExperiment(wm,50,25);
         FitnessFunction mot = new MovablesOnTop(exp.arena);//initialize fitness
         FitnessFunction avg = new AverageSpeed(exp.arena);
